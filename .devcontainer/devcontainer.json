@@ -12,7 +12,7 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [ 8000 ],
+	"forwardPorts": [ ],
 
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "cat /etc/os-release",
@@ -22,12 +22,13 @@
 		// "PIP_NO_CACHE_DIR": "off",
 		// "PIP_DISABLE_PIP_VERSION_CHECK": "on",
 		// "PYTHONPATH": "/workspaces/vendor",
-		// "PATH": "/workspaces/vendor/bin:${containerEnv:PATH}"
+		"PATH": "/workspaces/cadabra/bin:${containerEnv:PATH}",
+		"WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
 
 	},
 	"remoteUser": "cadabra",
 	"updateRemoteUserUID": true,
-	"postCreateCommand": "sudo mkdir -p /workspaces/vendor && sudo chown cadabra:cadabra /workspaces/vendor && exec bash",
+	"postCreateCommand": "cp /workspaces/cadabra/settings.xml ~/.m2/ && exec bash", 
 	"customizations": {
 	
 		// Configure properties specific to VS Code.
