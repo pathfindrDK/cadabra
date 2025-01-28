@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Cadabra Python",
+	"name": "Aliro Dev Container",
 	"build": {
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
@@ -13,22 +13,19 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [ ],
+	"runArgs": [
+		"--env-file", "${localWorkspaceFolder}/.env"
+	], 
 
-	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
-	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	
 	"remoteEnv": {
-		// "PIP_NO_CACHE_DIR": "off",
-		// "PIP_DISABLE_PIP_VERSION_CHECK": "on",
-		// "PYTHONPATH": "/workspaces/vendor",
 		"PATH": "/workspaces/cadabra/bin:${containerEnv:PATH}",
 		"WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
 
 	},
 	"remoteUser": "cadabra",
 	"updateRemoteUserUID": true,
-	"postCreateCommand": "cp /workspaces/cadabra/settings.xml ~/.m2/ && exec bash", 
+	"postStartCommand": "printenv && sed -e \"s/GITHUB_USER_FOR_MAVEN/$GITHUB_USER_FOR_MAVEN/g\" -e \"s/GITHUB_PAT_FOR_MAVEN/$GITHUB_PAT_FOR_MAVEN/g\" $WORKSPACE_FOLDER/settings.xml > ~/.m2/settings.xml && exit 0", 
 	"customizations": {
 	
 		// Configure properties specific to VS Code.
