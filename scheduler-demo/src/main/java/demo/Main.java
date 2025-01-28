@@ -23,14 +23,14 @@ public class Main {
         
         // Generate the timestamp to avoid overwriting files
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()); // Create a timestamp
-        String outputPdfPath = basePath + "generated_output_" + timestamp + ".pdf"; // Output file path with timestamp
+        String outputPdfPath = basePath + "/generated_output_" + timestamp + ".pdf"; // Output file path with timestamp
 
         try {
             // Read the file content into a string
             String htmlContent = new String(Files.readAllBytes(Paths.get(filePath)));
 
             // Generate PDF from HTML string
-            ByteArrayOutputStream pdfOutputStream = PDF.htmlToPdfOutputStream(htmlContent, true);
+            ByteArrayOutputStream pdfOutputStream = PDF.htmlToPdfOutputStream(htmlContent, false);
 
             // Write the ByteArrayOutputStream to a file (PDF) in the generated_files folder
             try (FileOutputStream fileOutputStream = new FileOutputStream(outputPdfPath)) {
