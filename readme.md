@@ -37,11 +37,12 @@ cadabra --license $CADABRA_LICENSE &
 # or, for specific license
 cadabra --license license_key_supplied_by_pathfindr &
 ```
+Note the & at the end of the command. It is used to run the cadabra service in the background.
 
 This will start the cadabra service on port 8000.
 To start the cadabra service on a different port, run the following command:
 ```bash
-cadabra --license $CADABRA_LICENSE --port 8001 &
+cadabra --license $CADABRA_LICENSE --port 9000 &
 ```
 
 ## Build the scheduler demo package
@@ -49,7 +50,7 @@ We set up a basic java package to demonstrate how to use the scheduler. To build
 ```bash
 cd scheduler
 mvn clean package
-java -jar target/scheduler-demo-1.0-0-alpha.jar
+java -jar target/scheduler-demo-1.0-0-alpha.jar $WORKSPACE_FOLDER/test.html
 ```
 
 Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` and `GITHUB_PAT_FOR_MAVEN` in your `.env` file.
@@ -57,7 +58,7 @@ Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` 
 Before running the jar file, make sure 
 1. You fetched the cadabra binary
 2. You have set the `CADABRA_LICENSE` in your `.env` file.
-3. You are running cadanra service
+3. You are running cadabra service on port 9000 (default port is 8000)
 
 
 
