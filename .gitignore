@@ -2,3 +2,4 @@ bin/cadabra*
 scheduler-demo/target/*
 scheduler-demo/dependency-reduced-pom.xml
 .env
+tests
