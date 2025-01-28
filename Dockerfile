@@ -1,4 +1,4 @@
-FROM python:3.11-slim AS base
+FROM debian:bookworm-slim AS base
 
 # Refresh packages
 RUN apt-get update --fix-missing && apt-get -y upgrade && apt-get -y dist-upgrade 
