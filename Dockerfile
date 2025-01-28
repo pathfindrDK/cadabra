@@ -1,10 +1,17 @@
 FROM python:3.11-slim AS base
 
+# Refresh packages
 RUN apt-get update --fix-missing && apt-get -y upgrade && apt-get -y dist-upgrade 
-RUN apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 \ 
+
+# Install basic tools and maven
+RUN apt-get install -y \ 
     sudo mc git curl wget \
     maven
-    
+
+COPY install-deps.sh /install-deps.sh
+RUN chmod +x /install-deps.sh && /install-deps.sh
+
+# Install GitHub CLI
 RUN mkdir -p -m 755 /etc/apt/keyrings \
     && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
@@ -23,6 +30,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+# Copy Maven auth settings dummy file
+RUN mkdir -p -m 755 /home/$USERNAME/.m2 \
+    && chown -R $USERNAME:$USERNAME /home/$USERNAME/.m2
+    
+COPY --chown=${USERNAME}:${USERNAME} settings.xml /home/$USERNAME/.m2/settings.xml
 
 USER $USERNAME
 
