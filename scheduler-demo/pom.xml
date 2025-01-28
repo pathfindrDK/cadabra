@@ -18,7 +18,7 @@
         <dependency>
             <groupId>dev.pathfindr</groupId>
             <artifactId>alirobridge</artifactId>
-            <version>1.0.20</version>
+            <version>1.0.21</version>
         </dependency>
     </dependencies>
 
