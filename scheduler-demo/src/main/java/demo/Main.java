@@ -19,11 +19,12 @@ public class Main {
         }
 
         String basePath = filePath.substring(0, filePath.lastIndexOf("/"));
+        String filename = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf("."));
 
         
         // Generate the timestamp to avoid overwriting files
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()); // Create a timestamp
-        String outputPdfPath = basePath + "/generated_output_" + timestamp + ".pdf"; // Output file path with timestamp
+        String outputPdfPath = basePath + "/" + filename + "-" + timestamp + ".pdf"; // Output file path with timestamp
 
         try {
             // Read the file content into a string

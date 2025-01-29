@@ -1,5 +1,33 @@
-# Setup your dev environment
+# Hi
 
+This is a basic setup to make use of the cadabra service and the aliro bridge in your project. 
+The setup is based on a docker container built on debian bookworm.
+The container can be used as a development container in VSCode.
+The cadabra service depents on
+- [https://github.com/GNOME/pango](Pango library)
+- [https://github.com/harfbuzz/harfbuzz](Harfbuzz library)
+These need to be installed on the host system.
+
+
+
+
+
+
+
+# How to ...
+
+## Run the demo
+1. Setup your environment variables in the .env file
+2. Open Vscode, build a contaienr and attach to it _*_
+3. Run the fetch-app.sh script
+4. Run the cadabra binary
+5. Compile the scheduler demo package
+6. Run the scheduler demo package
+
+All the steps are described in detail below.
+
+
+## Setup your dev environment
 1. Open the folder in vscode 
 2. Create environment file
 ```bash
@@ -14,8 +42,6 @@ CADABRA_VERSION=v1.0.0-alpha
 ```
 3. Rebuild and open the container
 
-
-# How to ...
 
 ## Fetch cadabra binary
 The cadabra binary is released by Pathfindr Aps and is not part of the repository. To fetch the binary, run the following command:
@@ -39,18 +65,18 @@ cadabra --license license_key_supplied_by_pathfindr &
 ```
 Note the & at the end of the command. It is used to run the cadabra service in the background.
 
-This will start the cadabra service on port 8000.
+This will start the cadabra service on port 9000.
 To start the cadabra service on a different port, run the following command:
 ```bash
-cadabra --license $CADABRA_LICENSE --port 9000 &
+cadabra --license $CADABRA_LICENSE --port 9001 &
 ```
 
 ## Build the scheduler demo package
 We set up a basic java package to demonstrate how to use the scheduler. To build the package, run the following command:
 ```bash
-cd scheduler
+cd scheduler-demo
 mvn clean package
-java -jar target/scheduler-demo-1.0-0-alpha.jar $WORKSPACE_FOLDER/test.html
+java -jar target/scheduler-demo-1.0-0-alpha.jar /workspace/cadabra/test.html
 ```
 
 Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` and `GITHUB_PAT_FOR_MAVEN` in your `.env` file.
@@ -58,9 +84,7 @@ Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` 
 Before running the jar file, make sure 
 1. You fetched the cadabra binary
 2. You have set the `CADABRA_LICENSE` in your `.env` file.
-3. You are running cadabra service on port 9000 (default port is 8000)
-
-
+3. You are running cadabra service on port 9000 (default port is 9000)
 
 
 ## Aliro bridge setup in your project
@@ -71,7 +95,7 @@ Aliro bridge mvn packages are released by Pathfindr Aps and are not part of the 
         <dependency>
             <groupId>dev.pathfindr</groupId>
             <artifactId>alirobridge</artifactId>
-            <version>1.0.20</version>
+            <version>1.1.23</version>
         </dependency>
     </dependencies>
 
@@ -96,9 +120,29 @@ Aliro bridge mvn packages are released by Pathfindr Aps and are not part of the 
 ```
 
 ## Install dependencies
-To install the cadabra dependencies, run the following command:
+To install the cadabra dependencies on a debian based system, you can use the install-deps.sh script:
 ```bash
 ./install-deps.sh
 ```
 
-This will install the dependencies on a debian based system
+## Use the container without VSCode
+1. Build the container
+```bash
+docker build -t cadabra-aliro .
+# if you have different uid and gid than 1000, you can pass them as arguments
+docker build -t cadabra-aliro --build-arg USER_UID=1001 --build-arg USER_GID=1001 .
+```
+
+2. You need to start the container with the .env file as an argument
+```bash
+docker run -it --env-file .env -v $(pwd):/workspace/cadabra cadabra-aliro
+```
+
+3. Update settings.xml in /home/cadabra/.m2/ with your github user and PAT token
+
+4. Setup path to cadabra inside the container
+```bash
+export PATH=$PATH:/workspace/cadabra/bin
+```
+
+Now you can run the cadabra service and the scheduler demo package as described above.
