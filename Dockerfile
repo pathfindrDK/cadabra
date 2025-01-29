@@ -22,8 +22,8 @@ RUN mkdir -p -m 755 /etc/apt/keyrings \
     
 # Create a user and group with specific UID and GID
 ARG USERNAME=cadabra
-ARG USER_UID=1001
-ARG USER_GID=1001
+ARG USER_UID=1000
+ARG USER_GID=1000
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID --create-home --shell /bin/bash $USERNAME \
@@ -37,5 +37,3 @@ RUN mkdir -p -m 755 /home/$USERNAME/.m2 \
 COPY --chown=${USERNAME}:${USERNAME} settings.xml /home/$USERNAME/.m2/settings.xml
 
 USER $USERNAME
-
-
