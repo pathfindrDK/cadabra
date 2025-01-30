@@ -1,24 +1,73 @@
-This is free and unencumbered software released into the public domain.
+License Agreement
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+Copyright © 2025 Pathfindr ApS. All Rights Reserved.
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+This License Agreement ("Agreement") is entered into by and between Pathfindr ApS, a company registered in Denmark with company registration number 39935082 ("Licensor"), and the individual or entity ("Licensee") accessing or using the proprietary software, documentation, and/or related materials ("Licensed Materials").
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+1. Grant of License
 
-For more information, please refer to <https://unlicense.org>
+Subject to the terms and conditions of this Agreement and full payment of applicable fees, Pathfindr ApS grants the Licensee a limited, non-exclusive, non-transferable, non-sublicensable license to:
+
+    Use the Licensed Materials solely for internal business purposes, as specified in the applicable license purchase agreement or invoice.
+    Install and execute the Licensed Materials on a single device or within a specified environment as permitted under this Agreement.
+
+2. Restrictions
+
+The Licensee shall not, under any circumstances:
+
+    Copy, distribute, sell, sublicense, lease, rent, or otherwise make the Licensed Materials available to any third party.
+    Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Licensed Materials.
+    Modify, adapt, translate, or create derivative works of the Licensed Materials without prior written authorization from Pathfindr ApS.
+    Use the Licensed Materials for any purpose other than those expressly permitted in this Agreement, including but not limited to any illegal or unethical activities.
+
+3. Ownership and Intellectual Property
+
+    The Licensed Materials, including any improvements, modifications, or derivative works created by the Licensor, remain the sole property of Pathfindr ApS.
+    The Licensee acknowledges that no ownership rights are conveyed by this Agreement. The Licensed Materials are protected by copyright, trade secret laws, and international treaties.
+
+4. Fees and Payment
+
+    The Licensee agrees to pay all fees associated with the Licensed Materials, as specified in the applicable license purchase agreement, invoice, or pricing terms provided by Pathfindr ApS.
+    Failure to remit payment in a timely manner shall result in the suspension or termination of this license.
+
+5. Confidentiality
+
+The Licensee agrees to treat the Licensed Materials as confidential and proprietary information of Pathfindr ApS and to take all reasonable precautions to prevent unauthorized disclosure or access. The Licensee shall not disclose the Licensed Materials or any part thereof to any third party without prior written consent from Pathfindr ApS.
+
+6. Term and Termination
+
+    Term: This Agreement is effective from the date of acceptance and continues until terminated.
+    Termination:
+        Pathfindr ApS may terminate this Agreement immediately if the Licensee breaches any terms of this Agreement.
+        Upon termination, the Licensee must cease all use of the Licensed Materials, destroy all copies in their possession, and certify such destruction to Pathfindr ApS.
+    Termination of this Agreement does not relieve the Licensee of its obligation to pay any fees accrued before termination.
+
+7. Limited Warranty and Disclaimer
+
+    Limited Warranty:
+        Pathfindr ApS warrants that the Licensed Materials will perform substantially in accordance with the accompanying documentation for a period of 30 days from the date of delivery.
+    Disclaimer:
+        EXCEPT AS EXPRESSLY PROVIDED, THE LICENSED MATERIALS ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+8. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW:
+
+    IN NO EVENT SHALL PATHFINDR APS BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS OR DATA, ARISING OUT OF OR RELATED TO THE USE OR INABILITY TO USE THE LICENSED MATERIALS, EVEN IF PATHFINDR APS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+    THE TOTAL LIABILITY OF PATHFINDR APS SHALL NOT EXCEED THE AMOUNT PAID BY THE LICENSEE FOR THE LICENSED MATERIALS.
+
+9. Governing Law
+
+This Agreement shall be governed by and construed in accordance with the laws of Denmark. Any disputes arising out of or in connection with this Agreement shall be exclusively resolved in the courts of Roskilde, Denmark.
+
+10. Entire Agreement
+
+This Agreement constitutes the entire agreement between the Licensee and Pathfindr ApS concerning the Licensed Materials and supersedes all prior agreements, representations, or understandings. Any amendments or modifications must be in writing and signed by both parties.
+11. Contact Information
+
+For questions regarding this Agreement, please contact:
+
+Pathfindr ApS
+Address: Veddelev Bygade 34, 4000 Roskilde
+Email: hi@pathfindr.dev
+Phone: +45 21844324
