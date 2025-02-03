@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.nio.charset.StandardCharsets;
 import aliro.bridge.PDF; // Import the renamed PDF class
 
 public class Main {
@@ -28,7 +28,7 @@ public class Main {
 
         try {
             // Read the file content into a string
-            String htmlContent = new String(Files.readAllBytes(Paths.get(filePath)));
+            String htmlContent = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
 
             // Generate PDF from HTML string
             ByteArrayOutputStream pdfOutputStream = PDF.htmlToPdfOutputStream(htmlContent, false);
