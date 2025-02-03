@@ -76,7 +76,7 @@ We set up a basic java package to demonstrate how to use the scheduler. To build
 ```bash
 cd scheduler-demo
 mvn clean package
-java -jar target/scheduler-demo-1.0-0-alpha.jar /workspace/cadabra/test.html
+java -jar target/scheduler-demo-1.0-0-alpha.jar /workspaces/cadabra/test.html
 ```
 
 Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` and `GITHUB_PAT_FOR_MAVEN` in your `.env` file.
