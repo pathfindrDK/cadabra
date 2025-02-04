@@ -9,11 +9,6 @@ The cadabra service depends on
 These need to be installed on the host system.
 
 
-
-
-
-
-
 # How to ...
 
 ## Run the demo
@@ -87,24 +82,15 @@ To start the cadabra service on a different port, run the following command:
 cadabra --license $CADABRA_LICENSE --port 9001 &
 ```
 
-## Build the scheduler demo package
-We set up a basic java package to demonstrate how to use the scheduler. To build the package, run the following command:
+## Test aliro-schedule with curl
 ```bash
-cd scheduler-demo
-mvn clean package
-java -jar target/scheduler-demo-1.0-0-alpha.jar /workspaces/cadabra/test.html
+curl --location 'http://localhost:9001/html2pdf' \
+--form 'file=@"/home/pathfindr/dev/cadabra-builder/tests/css-modified/305809-digital-notifikation-digital-notifikation.html"'
 ```
 
-Before you build the package make sure you have set the `GITHUB_USER_FOR_MAVEN` and `GITHUB_PAT_FOR_MAVEN` in your `.env` file.
-
-Before running the jar file, make sure 
-1. You fetched the cadabra binary
-2. You have set the `CADABRA_LICENSE` in your `.env` file.
-3. You are running cadabra service on port 9000 (default port is 9000)
-
-
-## Aliro bridge setup in your project
-To interface with the aliro-schedule via Java you can use the aliro-bridge mvn package. See the demo in ./scheduler-demo
+## Use aliro-scehdule in java project
+To interface with the aliro-schedule via Java you can use the aliro-bridge mvn package. See the demo in ./scheduler-demo. 
+aliro-bridge is an interface for the aliro-schedule that will try to connect to it via port 9000.
 
 
 ## Install dependencies
