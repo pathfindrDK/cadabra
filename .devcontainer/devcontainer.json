@@ -25,7 +25,7 @@
 	},
 	"remoteUser": "cadabra",
 	"updateRemoteUserUID": true,
-	"postStartCommand": "printenv && sed -e \"s/GITHUB_USER_FOR_MAVEN/$GITHUB_USER_FOR_MAVEN/g\" -e \"s/GITHUB_PAT_FOR_MAVEN/$GITHUB_PAT_FOR_MAVEN/g\" $WORKSPACE_FOLDER/settings.xml > ~/.m2/settings.xml && exit 0", 
+	"postStartCommand": "sed -e \"s/GITHUB_USER_FOR_MAVEN/$GITHUB_USER_FOR_MAVEN/g\" -e \"s/GITHUB_PAT_FOR_MAVEN/$GITHUB_PAT_FOR_MAVEN/g\" $WORKSPACE_FOLDER/settings.xml > ~/.m2/settings.xml && exit 0", 
 	"customizations": {
 	
 		// Configure properties specific to VS Code.
