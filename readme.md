@@ -85,7 +85,7 @@ cadabra --license $CADABRA_LICENSE --port 9001 &
 ## Test aliro-schedule with curl
 ```bash
 curl --location 'http://localhost:9001/html2pdf' \
---form 'file=@"/home/pathfindr/dev/cadabra-builder/tests/css-modified/305809-digital-notifikation-digital-notifikation.html"'
+--form 'file=@"/path/to/html_file/305809-digital-notifikation-digital-notifikation.html"'
 ```
 
 ## Use aliro-scehdule in java project
