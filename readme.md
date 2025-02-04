@@ -104,36 +104,8 @@ Before running the jar file, make sure
 
 
 ## Aliro bridge setup in your project
-Aliro bridge mvn packages are released by Pathfindr Aps and are not part of the repository. To use them in you project, you need to:
-1. Add Aliro bridge as a dependency in your project to pom.xml
-```xml
-    <dependencies>
-        <dependency>
-            <groupId>dev.pathfindr</groupId>
-            <artifactId>alirobridge</artifactId>
-            <version>1.1.23</version>
-        </dependency>
-    </dependencies>
+To interface with the aliro-schedule via JAVA then you can use the aliro-bridge mvn packages are released by Pathfindr Aps and are not part of the repository. To use it see the demo in the ./scheduler-demo
 
-    <repositories>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/pathfindrDK/packages</url>
-        </repository>
-    </repositories>
-```
-2. Although the pacakges are public, you need a github user and PAT token to download them. Add the following to your settings.xml file in your maven installation folder:
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>github_user</username>
-      <password>github_pat</password>
-    </server>
-  </servers>
-</settings>
-```
 
 ## Install dependencies
 To install the cadabra dependencies on a debian based system, you can use the install-deps.sh script:
