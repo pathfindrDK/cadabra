@@ -15,11 +15,13 @@ These need to be installed on the host system.
 
 ## Start the container
 1. navigate to root folder of project
-2. run docker compose up
-
+2. Start the container
+```bash
+docker compose up
+```
 ## Test aliro-schedule with curl
 ```bash
-curl --location 'http://localhost:9001/html2pdf' \
+curl --location 'http://localhost:9000/html2pdf' \
 --form 'file=@"/path/to/html_file/305809-digital-notifikation-digital-notifikation.html"'
 ```
 
