@@ -9,7 +9,9 @@ The cadabra service depends on
 These need to be installed on the host system.
 
 
-## Before running starting the container update the .env file with currect values.
+## Before running starting the container
+1. Get license keys from Pathfindr.
+1.  update the values in the .env file 
 
 ## Start the container
 1. navigate to root folder of project
