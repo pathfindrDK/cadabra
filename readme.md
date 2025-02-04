@@ -9,78 +9,11 @@ The cadabra service depends on
 These need to be installed on the host system.
 
 
-# How to ...
+## Before running starting the container update the .env file with currect values.
 
-## Run the demo
-1. Create a .env file and add your environment variables in the .env file
-2. build a contaienr and attach to it
-3. Run the fetch-app.sh script to install dependencies
-4. Run the cadabra binary
-5. Compile the scheduler demo package
-6. Run the scheduler demo package
-
-All the steps are described in detail below.
-
-
-## Setup your dev environment
-1. Open the folder in vscode 
-2. Create environment file
-```bash
-#.env
-
-GH_TOKEN=github_pat_token_supplied_by_pathfindr
-GITHUB_USER_FOR_MAVEN=github_user_required_for_maven
-GITHUB_PAT_FOR_MAVEN=github_pat_required_for_maven
-
-CADABRA_LICENSE=license_key_supplied_by_pathfindr
-CADABRA_VERSION=v1.0.0-alpha
-```
-3. Build the container
-```bash
-docker build -t cadabra-aliro .
-# if you have different uid and gid than 1000, you can pass them as arguments
-docker build -t cadabra-aliro --build-arg USER_UID=1001 --build-arg USER_GID=1001 .
-```
-
-4. You need to start the container with the .env file as an argument
-```bash
-docker run -it --env-file .env -v ./:/workspaces/cadabra cadabra-aliro
-```
-
-5. Update settings.xml in /home/cadabra/.m2/ with your github user and PAT token
-
-6. Setup path to cadabra inside the container
-```bash
-export PATH=$PATH:/workspaces/cadabra/bin
-```
-
-## Fetch cadabra binary
-The cadabra binary is released by Pathfindr Aps and is not part of the repository. To fetch the binary, run the following command:
-
-```bash
-# if CADABRA_VERSION is set in .env
-fetch-app.sh
-# or, for specific version
-fetch-app.sh v1.0.0-alpha
-```
-
-Before you fetch the binary, make sure you have set the `CADABRA_VERSION` and `GH_TOKEN` in your `.env` file.
-
-## Run the cadabra binary
-To run the cadabra binary, run the following command:
-```bash
-# if CADABRA_LICENSE is set in .env
-cadabra --license $CADABRA_LICENSE &
-# or, for specific license
-cadabra --license license_key_supplied_by_pathfindr &
-```
-Note the & at the end of the command. It is used to run the cadabra service in the background.
-
-This will start the cadabra service on port 9000.
-To start the cadabra service on a different port, run the following command:
-```bash
-cadabra --license $CADABRA_LICENSE --port 9001 &
-```
+## Start the container
+1. navigate to root folder of project
+2. run docker compose up
 
 ## Test aliro-schedule with curl
 ```bash
