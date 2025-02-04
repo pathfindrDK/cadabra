@@ -18,8 +18,8 @@ These need to be installed on the host system.
 
 ## Run the demo
 1. Create a .env file and add your environment variables in the .env file
-2. Open Vscode, build a contaienr and attach to it _*_ If you are NOT using VS code scroll to the bottom :)
-3. Run the fetch-app.sh script
+2. build a contaienr and attach to it
+3. Run the fetch-app.sh script to install dependencies
 4. Run the cadabra binary
 5. Compile the scheduler demo package
 6. Run the scheduler demo package
