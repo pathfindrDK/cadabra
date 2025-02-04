@@ -135,14 +135,14 @@ docker build -t cadabra-aliro --build-arg USER_UID=1001 --build-arg USER_GID=100
 
 2. You need to start the container with the .env file as an argument
 ```bash
-docker run -it --env-file .env -v $(pwd):/workspace/cadabra cadabra-aliro
+docker run -it --env-file .env -v ./:/workspaces/cadabra cadabra-aliro
 ```
 
 3. Update settings.xml in /home/cadabra/.m2/ with your github user and PAT token
 
 4. Setup path to cadabra inside the container
 ```bash
-export PATH=$PATH:/workspace/cadabra/bin
+export PATH=$PATH:/workspaces/cadabra/bin
 ```
 
 Now you can run the cadabra service and the scheduler demo package as described above.
