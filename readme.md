@@ -17,7 +17,7 @@ These need to be installed on the host system.
 # How to ...
 
 ## Run the demo
-1. Setup your environment variables in the .env file
+1. Create a .env file and add your environment variables in the .env file
 2. Open Vscode, build a contaienr and attach to it _*_
 3. Run the fetch-app.sh script
 4. Run the cadabra binary
