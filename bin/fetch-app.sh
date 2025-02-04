@@ -1,4 +1,4 @@
-cd $WORKSPACE_FOLDER
+cd /workspaces/cadabra
 
 VERSION=$1
 if [ -z "$VERSION" ]; then
@@ -29,11 +29,27 @@ if [ $? -ne 0 ]; then
 fi
 
 
-
 gh release download $CADABRA_VERSION --repo pathfindrDK/cadabra-release --pattern "cadabra-$CADABRA_VERSION.tar.gz" 
+if [ $? -ne 0 ]; then
+    echo "Failed to download cadabra-$CADABRA_VERSION.tar.gz"
+    exit 1
+fi
 tar -xvf cadabra-$CADABRA_VERSION.tar.gz -C ./bin/ > /dev/null
-rm cadabra-$CADABRA_VERSION.tar.gz
-chmod +x bin/cadabra
+if [ $? -ne 0 ]; then
+    echo "Failed to extract cadabra-$CADABRA_VERSION.tar.gz"
+    exit 1
+fi
 
+rm cadabra-$CADABRA_VERSION.tar.gz
+if [ $? -ne 0 ]; then
+    echo "Failed to remove cadabra-$CADABRA_VERSION.tar.gz"
+    exit 1
+fi
+
+chmod +x ./bin/cadabra
+if [ $? -ne 0 ]; then
+    echo "Failed to make cadabra executable"
+    exit 1
+fi
 echo "Downloaded cadabra-$CADABRA_VERSION.tar.gz, binary is in bin/cadabra"
 echo "To run the binary, use ./bin/cadabra --license <LICENSE> &"
