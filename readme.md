@@ -3,7 +3,7 @@
 This is a basic setup to make use of the cadabra service and the aliro bridge in your project. 
 The setup is based on a docker container built on debian bookworm.
 The container can be used as a development container in VSCode.
-The cadabra service depents on
+The cadabra service depends on
 - [https://github.com/GNOME/pango](Pango library)
 - [https://github.com/harfbuzz/harfbuzz](Harfbuzz library)
 These need to be installed on the host system.
