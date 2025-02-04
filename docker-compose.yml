@@ -1,0 +1,15 @@
+services:
+  aliro-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: aliro-scheduler
+      args: 
+        - CADABRA_VERSION=${CADABRA_VERSION}
+        - GH_TOKEN=${GH_TOKEN}
+        - USER_UID=${USER_UID}
+        - USER_GID=${USER_GID}
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"

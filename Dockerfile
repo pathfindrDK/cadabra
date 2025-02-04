@@ -1,12 +1,11 @@
-FROM debian:bookworm-slim AS base
+FROM debian:bookworm-slim AS aliro-scheduler
 
 # Refresh packages
 RUN apt-get update --fix-missing && apt-get -y upgrade && apt-get -y dist-upgrade 
 
 # Install basic tools and maven
 RUN apt-get install -y \ 
-    sudo mc git curl wget \
-    maven
+    sudo mc git curl wget 
 
 COPY install-deps.sh /install-deps.sh
 RUN chmod +x /install-deps.sh && /install-deps.sh
@@ -21,19 +20,22 @@ RUN mkdir -p -m 755 /etc/apt/keyrings \
     && apt install gh -y
     
 # Create a user and group with specific UID and GID
-ARG USERNAME=cadabra
 ARG USER_UID=1000
 ARG USER_GID=1000
 
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID --create-home --shell /bin/bash $USERNAME \
-    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
+RUN groupadd --gid $USER_GID cadabra \
+    && useradd --uid $USER_UID --gid $USER_GID --create-home --shell /bin/bash cadabra
+    # && echo "cadabra ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/cadabra \
+    # && chmod 0440 /etc/sudoers.d/cadabra
 
-# Copy Maven auth settings dummy file
-RUN mkdir -p -m 755 /home/$USERNAME/.m2 \
-    && chown -R $USERNAME:$USERNAME /home/$USERNAME/.m2
-    
-COPY --chown=${USERNAME}:${USERNAME} settings.xml /home/$USERNAME/.m2/settings.xml
+COPY --chown=cadabra:cadabra ./ /workspaces/cadabra
+WORKDIR /workspaces/cadabra
 
-USER $USERNAME
+ARG GH_TOKEN
+ARG CADABRA_VERSION
+RUN ./bin/fetch-app.sh
+
+
+USER cadabra
+ENTRYPOINT [ "/workspaces/cadabra/entrypoint.sh" ]
+
