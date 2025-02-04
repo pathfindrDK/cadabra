@@ -40,8 +40,24 @@ GITHUB_PAT_FOR_MAVEN=github_pat_required_for_maven
 CADABRA_LICENSE=license_key_supplied_by_pathfindr
 CADABRA_VERSION=v1.0.0-alpha
 ```
-3. Rebuild and open the container
+3. Build the container
+```bash
+docker build -t cadabra-aliro .
+# if you have different uid and gid than 1000, you can pass them as arguments
+docker build -t cadabra-aliro --build-arg USER_UID=1001 --build-arg USER_GID=1001 .
+```
 
+4. You need to start the container with the .env file as an argument
+```bash
+docker run -it --env-file .env -v ./:/workspaces/cadabra cadabra-aliro
+```
+
+5. Update settings.xml in /home/cadabra/.m2/ with your github user and PAT token
+
+6. Setup path to cadabra inside the container
+```bash
+export PATH=$PATH:/workspaces/cadabra/bin
+```
 
 ## Fetch cadabra binary
 The cadabra binary is released by Pathfindr Aps and is not part of the repository. To fetch the binary, run the following command:
@@ -124,25 +140,3 @@ To install the cadabra dependencies on a debian based system, you can use the in
 ```bash
 ./install-deps.sh
 ```
-
-## Use the container without VSCode
-1. Build the container
-```bash
-docker build -t cadabra-aliro .
-# if you have different uid and gid than 1000, you can pass them as arguments
-docker build -t cadabra-aliro --build-arg USER_UID=1001 --build-arg USER_GID=1001 .
-```
-
-2. You need to start the container with the .env file as an argument
-```bash
-docker run -it --env-file .env -v ./:/workspaces/cadabra cadabra-aliro
-```
-
-3. Update settings.xml in /home/cadabra/.m2/ with your github user and PAT token
-
-4. Setup path to cadabra inside the container
-```bash
-export PATH=$PATH:/workspaces/cadabra/bin
-```
-
-Now you can run the cadabra service and the scheduler demo package as described above.
