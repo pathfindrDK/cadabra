@@ -104,7 +104,7 @@ Before running the jar file, make sure
 
 
 ## Aliro bridge setup in your project
-To interface with the aliro-schedule via JAVA then you can use the aliro-bridge mvn packages are released by Pathfindr Aps and are not part of the repository. To use it see the demo in the ./scheduler-demo
+To interface with the aliro-schedule via Java you can use the aliro-bridge mvn package. See the demo in ./scheduler-demo
 
 
 ## Install dependencies
