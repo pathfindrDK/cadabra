@@ -1,5 +1,6 @@
 services:
   aliro-scheduler:
+    image: aliro-scheduler
     build:
       context: .
       dockerfile: Dockerfile
