@@ -25,7 +25,7 @@ curl --location 'http://localhost:9000/html2pdf' \
 --form 'file=@"/path/to/html_file/305809-digital-notifikation-digital-notifikation.html"'
 ```
 
-## Use aliro-scehdule in java project
+## Interface with aliro-schedule in a java project via the aliro-bridge maven package.
 To interface with the aliro-schedule via Java you can use the aliro-bridge mvn package. See the demo in ./scheduler-demo. 
 aliro-bridge is an interface for the aliro-schedule that will try to connect to it via port 9000.
 
