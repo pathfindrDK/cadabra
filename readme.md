@@ -22,7 +22,7 @@ docker compose up
 ## Test aliro-schedule with curl
 ```bash
 curl --location 'http://localhost:9000/html2pdf' \
---form 'file=@"/path/to/html_file/305809-digital-notifikation-digital-notifikation.html"'
+--form 'file=@"/path/to/html_file/305809-digital-notifikation-digital-notifikation.html"' --output /output/path/output.pdf
 ```
 
 ## Interface with aliro-schedule in a java project via the aliro-bridge maven package.
