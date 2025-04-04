@@ -10,7 +10,8 @@ services:
         - GH_TOKEN=${GH_TOKEN}
         - USER_UID=${USER_UID}
         - USER_GID=${USER_GID}
+        - LOG_LEVEL=${LOG_LEVEL}
     env_file:
       - .env
     ports:
-      - "9000:9000"
+      - "${PORT}:9000"
