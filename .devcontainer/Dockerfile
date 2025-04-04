@@ -6,7 +6,7 @@ RUN apt-get install -y \
     sudo mc git curl wget \
     maven
 
-RUN echo "cadabra ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/cadabra \
+RUN echo "cadabra ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/cadabra && \
     chmod 0440 /etc/sudoers.d/cadabra
 
 
