@@ -1,6 +1,7 @@
 services:
   aliro-scheduler:
     image: aliro-scheduler
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,4 +15,4 @@ services:
     env_file:
       - .env
     ports:
-      - "${PORT}:9000"
+      - "9000:${PORT}"
