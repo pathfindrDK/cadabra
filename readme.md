@@ -34,6 +34,9 @@ Additional configuration you can do in the `.env` file:
 PORT=9000 # Docker will map this host port to the cadabra service port
 LOG_LEVEL=info # Set the log level for the cadabra service (debug, info, warn, error, default is info)
 ```
+_Note:_ Changing the port only affects the host port mapping. The cadabra service will always run on port 9000 in the container. 
+_Note:_ If you use devcontainer in VSCode, you need to change the port in the `.devcontainer.json` file as well.
+
 
 ### Testing the webservice
 You can verify that the cadabra service is running by sending a test request to the service.
