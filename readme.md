@@ -133,6 +133,8 @@ cadabra --license $CADABRA_LICENSE [--port 9000] [--log-level (info|debug|warn|e
 
 This will start the cadabra service in the background. You can then use the aliro-bridge library to interact with the service.
 
+_Note_: If you want to run the container on a different port, changing the PORT in .env in not enough. You also need to change the port in the `.devcontainer.json` file.
+
 ### Use aliro-schedule in Java project
 ```bash
 cd ./scheduler-demo
